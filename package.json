@@ -1,0 +1,20 @@
+{
+  "name": "burger-time",
+  "version": "0.0.1",
+  "description": "Simple full-stack app for eating burgers",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/duncan-iaria/burger-time.git"
+  },
+  "author": "duncan iaria",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/duncan-iaria/burger-time/issues"
+  },
+  "homepage": "https://github.com/duncan-iaria/burger-time#readme"
+}
