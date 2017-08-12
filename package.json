@@ -16,5 +16,12 @@
   "bugs": {
     "url": "https://github.com/duncan-iaria/burger-time/issues"
   },
-  "homepage": "https://github.com/duncan-iaria/burger-time#readme"
+  "homepage": "https://github.com/duncan-iaria/burger-time#readme",
+  "devDependencies": {
+    "webpack": "^3.5.4"
+  },
+  "dependencies": {
+    "dotenv": "^4.0.0",
+    "mysql2": "^1.4.0"
+  }
 }
