@@ -10,8 +10,7 @@ const burger =
 
         function onGetComplete( tResult )
         {   
-            console.log( tResult );
-            //tCallback( tResult );
+            tCallback( tResult );
         }
     },
 
