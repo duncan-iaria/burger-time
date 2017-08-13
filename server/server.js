@@ -5,6 +5,7 @@ const bodyParser = require( 'body-parser' );
 const path = require( 'path' );
 
 const burger = require( './models/burger' );
+const routes = require( './controllers/burger.controller.js' );
 
 //=========================
 //  SERVER
@@ -31,11 +32,10 @@ server.set( 'view engine', 'handlebars' );
 server.use( express.static( "public" ) );
 server.use( bodyParser.urlencoded( { extended: false } ) );
 
-//basic test route
-server.get( '/', function ( tRequest, tResponse )
-{
-    tResponse.render( 'index' );
-});
+//=========================
+//  MAIN ROUTES
+//=========================
+server.use( "/", routes );
 
 //=========================
 //  INIT
