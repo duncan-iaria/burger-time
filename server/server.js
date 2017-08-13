@@ -1,18 +1,28 @@
 require( 'dotenv' ).config( { path: './server/.env' } );
 const express = require( 'express' );
 const exphbs  = require( 'express-handlebars' );
+const bodyParser = require( 'body-parser' );
+const path = require( 'path' );
+
+const burger = require( './models/burger' );
 
 //=========================
 //  SERVER
 //=========================
 const server = express();
-const PORT = process.env.PORT;
+const port = process.env.PORT;
 const router = express.Router();
+
+//view paths
+const viewPath = path.join( __dirname, 'views/' );
+const layoutPath = viewPath + 'layouts/';
+const partialPath = viewPath + 'partials/';
 
 //=========================
 //  VIEW ENGINE
 //=========================
-server.engine( 'handlebars', exphbs( { defaultLayout: 'main' } ) );
+server.engine( 'handlebars', exphbs( { defaultLayout: 'main', layoutsDir: layoutPath, partialsDir: partialPath } ) );
+server.set( 'views', viewPath );
 server.set( 'view engine', 'handlebars' );
 
 //=========================
@@ -30,9 +40,9 @@ server.get( '/', function ( tRequest, tResponse )
 //=========================
 //  INIT
 //=========================
-server.listen( PORT, onServerInit )
+server.listen( port, onServerInit )
 
 function onServerInit()
 {
-    console.log( `Server is listening at ${ PORT }` );
+    console.log( `Server is listening at ${ port }` );
 }

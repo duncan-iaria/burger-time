@@ -1,4 +1,3 @@
-require( 'dotenv' ).config( { path: './server/.env' } );
 const mysql = require( 'mysql2' );
 
 const connection = mysql.createConnection
@@ -21,11 +20,12 @@ function onConnectionComplete( tError )
 {
     if( tError )
     {
-        console.log( 'there was an error when connecting: ' + tError );
+        console.log( `env path = ${ envPath }` );
+        console.log( `there was an error when connecting: ${tError}` );
     }
     else
     {
-        console.log( `MySQL connection complete at port process.env.DB_PORT` );
+        console.log( `MySQL connection complete at port ${ process.env.DB_PORT }` );
     }
 }
 
