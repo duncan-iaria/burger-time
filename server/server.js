@@ -2,6 +2,7 @@ require( 'dotenv' ).config( { path: './server/.env' } );
 const express = require( 'express' );
 const exphbs  = require( 'express-handlebars' );
 const bodyParser = require( 'body-parser' );
+const methodOverride = require( 'method-override' );
 const path = require( 'path' );
 
 const burger = require( './models/burger' );
@@ -31,6 +32,7 @@ server.set( 'view engine', 'handlebars' );
 //=========================
 server.use( express.static( "public" ) );
 server.use( bodyParser.urlencoded( { extended: false } ) );
+server.use( methodOverride( '_method' ) );
 
 //=========================
 //  MAIN ROUTES

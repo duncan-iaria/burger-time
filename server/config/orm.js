@@ -22,6 +22,35 @@ const orm =
             }
         }
     },
+
+    createTableEntry: function( tTable, tColumns, tValues, tCallback )
+    {
+        let queryString = `INSERT INTO ${ tTable }`;
+        queryString += " (";
+        queryString += tColumns.toString();
+        queryString += ") ";
+        queryString += "VALUES (";
+        queryString += printQuestionMarks(tValues.length);
+        queryString += ") ";
+
+        console.log( queryString );
+        connection.query( queryString, tValues, function( err, tResult) {
+            if (err) {
+                throw err;
+            }
+            tCallback( tResult );
+         });
+    },
+}
+
+
+// Helper function for SQL syntax.
+function printQuestionMarks(num) {
+  var arr = [];
+  for (var i = 0; i < num; i++) {
+    arr.push("?");
+  }
+  return arr.toString();
 }
 
 module.exports = orm;

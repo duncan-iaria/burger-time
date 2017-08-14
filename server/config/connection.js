@@ -20,8 +20,7 @@ function onConnectionComplete( tError )
 {
     if( tError )
     {
-        console.log( `env path = ${ envPath }` );
-        console.log( `there was an error when connecting: ${tError}` );
+        console.log( `there was an error when connecting: ${ tError }` );
     }
     else
     {

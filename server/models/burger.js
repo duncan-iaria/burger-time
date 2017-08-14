@@ -15,9 +15,9 @@ const burger =
     },
 
 	//create a new burger and add it to the db
-    create: function()
-    {
-        
+    create: function( tTable, tColumns, tValues, tCallback )
+    {        
+        orm.createTableEntry( tTable, tColumns, tValues, tCallback );
     },
 
 	//update an existing burger in the db (primarily for 'eating' or 'devouring' it)

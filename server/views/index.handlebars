@@ -1,4 +1,21 @@
 <h1>WASSUP BURGER BOYS?!</h1>
+
+<h3>available burgers</h3>
+
+{{!-- container for available --}}
 {{#each burgers}}
-    {{> burger/burger}}
+    {{#if this.is_devoured}}
+    {{else}}
+        {{> burger/burger}}
+    {{/if}}
 {{/each}}
+
+{{!-- container for devoured burgers --}}
+<h3>devoured burgers</h3>
+{{#each burgers}}
+    {{#if this.is_devoured}}
+        {{> burger/burger}}
+    {{/if}}
+{{/each}}
+
+{{> burger/burger-input}}
