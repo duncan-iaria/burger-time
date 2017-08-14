@@ -1,5 +1,7 @@
 const connection = require( './connection' );
-
+//=========================
+//  ORM
+//=========================
 const orm =
 {
     getAllFromTable: function( tTable, tCallback )
@@ -99,6 +101,15 @@ const orm =
     }
 }
 
+//=========================
+//  EXPORT
+//=========================
+module.exports = orm;
+
+//=========================
+// HELPERS
+//=========================
+//pass in arrays, get out key/value pairs from the arrays
 function arraysToKeyValue( tColumns, tValues )
 {
     //make sure they match up (are the same size arrays )
@@ -128,5 +139,3 @@ function printQuestionMarks( tAmt )
 
     return tempArray.toString();
 }
-
-module.exports = orm;
