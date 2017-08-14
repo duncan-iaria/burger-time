@@ -21,15 +21,28 @@ const burger =
     },
 
 	//update an existing burger in the db (primarily for 'eating' or 'devouring' it)
-    update: function()
+    update: function( tId, tCallback )
     {
+        const tempColumns = [ 'is_devoured' ];
+        const tempValues = [ true ];
+        
+        orm.updateTableEntryById( 'burgers', tId, tempColumns, tempValues, onUpdateComplete );
 
+        function onUpdateComplete( tResult )
+        {
+            tCallback( tResult );
+        }
     },
 
 	//remove a burger entry from the database
-    delete: function()
+    delete: function( tId, tCallback )
     {
+        orm.deleteTableEntryById( 'burgers', tId, onDeleteComplete );
 
+        function onDeleteComplete( tResult )
+        {
+            tCallback( tResult );
+        }
     }
 }
 

@@ -52,10 +52,17 @@ function onUpdateBurger( tRequest, tResponse )
     if( tRequest.params.id != null )
     {
         console.log( `update burger with id ${ tRequest.params.id }` );
+        burger.update( tRequest.params.id,  onUpdateBurgerComplete );
     }
     else
     {
         console.log( `there was an error when attempting to update a burger (no id passed)` );
+    }
+
+    function onUpdateBurgerComplete( tResult )
+    {
+        console.log( tResult );
+        tResponse.redirect( '/' );
     }
 }
 
@@ -66,7 +73,14 @@ router.delete( '/:id', onDeleteBurger )
 
 function onDeleteBurger( tRequest, tResponse )
 {
-    console.log( `delete burger ${ tRequest.params.id }` );
+    //console.log( `delete burger ${ tRequest.params.id }` );
+    burger.delete( tRequest.params.id, onDeleteBurgerComplete );
+
+    function onDeleteBurgerComplete( tResult )
+    {
+        console.log( tResult );
+        tResponse.redirect( '/' );
+    }
 }
 
 module.exports = router;
