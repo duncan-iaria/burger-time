@@ -30,7 +30,7 @@ server.set( 'view engine', 'handlebars' );
 //=========================
 //  MIDDLEWARE
 //=========================
-server.use( express.static( "public" ) );
+server.use( express.static( path.join( __dirname, 'public/build' ) ) );
 server.use( bodyParser.urlencoded( { extended: false } ) );
 server.use( methodOverride( '_method' ) );
 
